@@ -3,12 +3,19 @@ import {View, Text, TouchableOpacity, Image, Modal} from 'react-native';
 import styles from "./styles";
 import letters from "../RandomWord/letters";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as actionCreators from "../../redux/action-creators/index";
 
 const Keyboard = (props) => {
 
     const [lettersState, setLettersState] = useState(letters);
     const [modalOpen, setModalOpen] = useState(false);
     const {makeGuess, gameState, reset} = props;
+    const dispatch = useDispatch();
+
+    const {levelUp, earnCoin, purchase} = bindActionCreators( actionCreators, dispatch)
+    console.log(levelUp)
 
     const letterPressHandler = (letter, index) => {
         if(gameState.gameOver) {
@@ -58,9 +65,14 @@ const Keyboard = (props) => {
                 <View style={styles.modalContainer}>
 
                     <View style={styles.modalContentContainer}>
-
                         <TouchableOpacity onPress={resetGame}>
                             <MaterialCommunityIcons name={"refresh"} size={180} color={"green"}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => levelUp()}>
+                            <MaterialCommunityIcons name={"arrow-up"} size={30} color={"purple"}/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => earnCoin(123)}>
+                            <MaterialCommunityIcons name={"circle"} size={30} color={"yellow"}/>
                         </TouchableOpacity>
                         <View style={styles.rewardContainer}>
                             <Text style={[styles.text, {color: gameState.state === "Won" ? "green" : "red"}]}>{gameState.state}</Text>

@@ -1,5 +1,5 @@
-import React, {useEffect, useState} from 'react';
-import {View, Text, Image, Button} from 'react-native';
+import React, {useState} from 'react';
+import {Image, View} from 'react-native';
 import styles from "./styles";
 import StatBar from "../StatBar";
 import skinData from "./data"
@@ -11,7 +11,7 @@ const GameScreen = (props) => {
     const [currentLife, setCurrentLife] = useState(7);
 
     const loseLifeHandler = () => {
-        if(currentLife > 0) {
+        if (currentLife > 0) {
             setCurrentLife(previousLife => previousLife - 1);
         }
     }
@@ -22,9 +22,9 @@ const GameScreen = (props) => {
 
     return (
         <View style={styles.screen}>
-            <StatBar navigation = {navigation} currentScreen={'game'} />
+            <StatBar navigation={navigation} currentScreen={'game'}/>
             <View style={styles.imageContainer}>
-                <Image source={skinData[currentLife].image} style={{ width: 300, height: 300 }}/>
+                <Image source={skinData[currentLife].image} style={{width: 300, height: 300}}/>
             </View>
             <RandomWord currentLife={currentLife} loseLife={loseLifeHandler} resetLife={resetLife}/>
         </View>
