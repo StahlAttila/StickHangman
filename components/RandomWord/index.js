@@ -4,6 +4,9 @@ import randomWords from "random-words"
 import styles from "./styles";
 import Keyboard from "../Keyboard";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
+import {useDispatch} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as actionCreators from "../../redux/action-creators";
 
 const RandomWord = (props) => {
 
@@ -15,7 +18,9 @@ const RandomWord = (props) => {
         gameOver: false,
         wordToGuess: initWordToGuess,
         hiddenWord: initHiddenWord
-    })
+    });
+    const dispatch = useDispatch();
+    const {levelUp, earnCoin, purchase, changeSkin} = bindActionCreators( actionCreators, dispatch);
 
     function hideWord(wordToHide) {
         let initHiddenWord = "";
@@ -50,7 +55,9 @@ const RandomWord = (props) => {
 
         setGameState({...gameState, hiddenWord: revealedWord})
         if (revealedWord === gameState.wordToGuess) {
-            setGameState({...gameState, gameOver: true, state: "Won"})
+            setGameState({...gameState, gameOver: true, state: "Won"});
+            levelUp();
+            earnCoin(123);
         }
     }
 

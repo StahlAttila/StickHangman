@@ -1,24 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, Image, Modal} from 'react-native';
+import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
 import styles from "./styles";
 import letters from "../RandomWord/letters";
 import {MaterialCommunityIcons} from "@expo/vector-icons";
-import {useDispatch} from "react-redux";
-import {bindActionCreators} from "redux";
-import * as actionCreators from "../../redux/action-creators/index";
 
 const Keyboard = (props) => {
 
     const [lettersState, setLettersState] = useState(letters);
     const [modalOpen, setModalOpen] = useState(false);
     const {makeGuess, gameState, reset} = props;
-    const dispatch = useDispatch();
-
-    const {levelUp, earnCoin, purchase} = bindActionCreators( actionCreators, dispatch)
-    console.log(levelUp)
 
     const letterPressHandler = (letter, index) => {
-        if(gameState.gameOver) {
+        if (gameState.gameOver) {
             setModalOpen(true);
             return;
         }
@@ -46,7 +39,7 @@ const Keyboard = (props) => {
     }
 
     useEffect(() => {
-        if(gameState.gameOver) {
+        if (gameState.gameOver) {
             setModalOpen(true);
             resetKeyboard();
         }
@@ -60,7 +53,7 @@ const Keyboard = (props) => {
                 visible={modalOpen}
             >
                 <TouchableOpacity onPress={() => setModalOpen(false)}>
-                    <View style={{ height: "100%"}}/>
+                    <View style={{height: "100%"}}/>
                 </TouchableOpacity>
                 <View style={styles.modalContainer}>
 
@@ -68,14 +61,9 @@ const Keyboard = (props) => {
                         <TouchableOpacity onPress={resetGame}>
                             <MaterialCommunityIcons name={"refresh"} size={180} color={"green"}/>
                         </TouchableOpacity>
-                        <TouchableOpacity onPress={() => levelUp()}>
-                            <MaterialCommunityIcons name={"arrow-up"} size={30} color={"purple"}/>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={() => earnCoin(123)}>
-                            <MaterialCommunityIcons name={"circle"} size={30} color={"yellow"}/>
-                        </TouchableOpacity>
                         <View style={styles.rewardContainer}>
-                            <Text style={[styles.text, {color: gameState.state === "Won" ? "green" : "red"}]}>{gameState.state}</Text>
+                            <Text
+                                style={[styles.text, {color: gameState.state === "Won" ? "green" : "red"}]}>{gameState.state}</Text>
                             <Text style={styles.text}>XP: +10</Text>
                             <View style={styles.coinContainer}>
                                 <Image source={require('../../assets/coin.png')} style={{width: 50, height: 50}}/>
