@@ -33,7 +33,6 @@ const Keyboard = (props) => {
     }
 
     const resetGame = () => {
-        //resetKeyboard();
         setModalOpen(false);
         reset();
     }
@@ -64,10 +63,10 @@ const Keyboard = (props) => {
                         <View style={styles.rewardContainer}>
                             <Text
                                 style={[styles.text, {color: gameState.state === "Won" ? "green" : "red"}]}>{gameState.state}</Text>
-                            <Text style={styles.text}>XP: +10</Text>
+                            <Text style={styles.text}>XP: +{gameState.reward.xp}</Text>
                             <View style={styles.coinContainer}>
                                 <Image source={require('../../assets/coin.png')} style={{width: 50, height: 50}}/>
-                                <Text style={styles.text}> + 100</Text>
+                                <Text style={styles.text}> +{gameState.reward.coin}</Text>
                             </View>
                         </View>
                     </View>

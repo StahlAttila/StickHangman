@@ -32,3 +32,30 @@ export const changeSkin = (skinPackageName) => {
         })
     }
 }
+
+export const earnXp = (xp) => {
+    return (dispatch) => {
+        dispatch({
+            type: "increment",
+            payload: xp
+        })
+    }
+}
+
+export const setCurrentXp = (xp) => {
+    return (dispatch) => {
+        dispatch({
+            type: "set",
+            payload: xp
+        })
+    }
+}
+
+export const setMaxXp = (xp) => {
+    return (dispatch) => {
+        dispatch({
+            type: "set",
+            payload: xp
+        })
+    }
+}
