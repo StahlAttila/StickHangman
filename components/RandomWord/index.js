@@ -1,9 +1,8 @@
-import React, {useEffect, useRef, useState } from 'react';
-import {Image, Modal, Text, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useState } from 'react';
+import {Text, View} from 'react-native';
 import randomWords from "random-words"
 import styles from "./styles";
 import Keyboard from "../Keyboard";
-import {MaterialCommunityIcons} from "@expo/vector-icons";
 import {useDispatch, useSelector} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as actionCreators from "../../redux/action-creators";
@@ -14,7 +13,7 @@ const RandomWord = (props) => {
     const initHiddenWord = hideWord(initWordToGuess);
     const {currentLife, loseLife, resetLife} = props;
     const [gameState, setGameState] = useState({
-        state: "Won",
+        state: "",
         gameOver: false,
         wordToGuess: initWordToGuess,
         hiddenWord: initHiddenWord,
@@ -54,7 +53,11 @@ const RandomWord = (props) => {
         if (!isGuessGood) {
             loseLife();
             if (currentLife === 1) {
-                setGameState({...gameState, gameOver: true, state: "Lost"});
+                const gameReward = {
+                    coin : 0,
+                    xp: 0
+                }
+                setGameState({...gameState, gameOver: true, state: "Lost", reward: gameReward});
                 return;
             }
         }
@@ -63,34 +66,30 @@ const RandomWord = (props) => {
 
         if (revealedWord === gameState.wordToGuess) {
             
-            const gameReward = calculateReward(revealedWord, currentLife, );
+            const gameReward = calculateReward(revealedWord, currentLife);
             setGameState({...gameState, gameOver: true, state: "Won", reward: gameReward});
-            console.log(gameReward);
-            // check if player leveled up and stuffs like that
-            levelProgression(gameReward.xp);
             earnCoin(gameReward.coin);
+            earnXp(gameReward.xp);
         }
     }
 
-    const levelProgression = (earnedXp) => {
-        console.log(`earned: ${earnedXp}, level: ${level}, current: ${currentXp}, max: ${maxXp}`);
-        const totalCurrentXp = currentXp + earnedXp;
-        const asd = totalCurrentXp/maxXp;
-        console.log("asd", asd)
-        if(totalCurrentXp/maxXp >= 1) {
+    const levelProgression = () => {
+
+        if(currentXp >= maxXp) {
             levelUp();
-            setCurrentXp(totalCurrentXp - maxXp);
-            const nextLevelXp = calculateRequiredXp(level);
-            console.log(nextLevelXp);
+            setCurrentXp(currentXp - maxXp);
+            console.log(level);
+            const nextLevelXp = calculateRequiredXp(level + 1);
+            console.log("next level xp: ", nextLevelXp)
             setMaxXp(nextLevelXp);
-        } else {
-            setCurrentXp(totalCurrentXp);
         }
     }
 
     const calculateRequiredXp = (nextLevel) => {
         const exponent = 1.5;
-        return Math.round(100 * (nextLevel ^ exponent))
+        const result = Math.round(100 * (Math.pow(nextLevel, exponent)));
+        console.log(result);
+        return result;
     }
 
     const calculateReward = (word, remainingLife) => {
@@ -115,12 +114,21 @@ const RandomWord = (props) => {
         resetLife();
         setGameState({
             ...gameState,
-            state: "Won",
+            state: "",
             gameOver: false,
             wordToGuess: newWord,
             hiddenWord: newHiddenWord
         });
     }
+
+    useEffect(() => {
+        if(gameState.state === 'Won') {
+            console.log("useeffect:", gameState)
+            levelProgression();
+            console.log("useEf curr: ", currentXp);
+            console.log("useEf max: ", maxXp);
+        }
+    }, [gameState.state])
 
     return (
         <View style={styles.container}>

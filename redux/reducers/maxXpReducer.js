@@ -1,6 +1,6 @@
 const reducer = (state = 100, action) => {
     switch (action.type) {
-        case "set":
+        case "setRequired":
             return action.payload;
         default:
             return state;

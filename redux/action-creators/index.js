@@ -45,7 +45,7 @@ export const earnXp = (xp) => {
 export const setCurrentXp = (xp) => {
     return (dispatch) => {
         dispatch({
-            type: "set",
+            type: "setCurrent",
             payload: xp
         })
     }
@@ -54,7 +54,7 @@ export const setCurrentXp = (xp) => {
 export const setMaxXp = (xp) => {
     return (dispatch) => {
         dispatch({
-            type: "set",
+            type: "setRequired",
             payload: xp
         })
     }

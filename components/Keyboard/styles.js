@@ -1,8 +1,8 @@
 import { StyleSheet} from "react-native";
-import {rgbaColor} from "react-native-reanimated/src/reanimated2/Colors";
 
 const styles = StyleSheet.create({
     letter: {
+        fontFamily: 'chalkboard',
         fontSize: 28,
         minWidth: 30,
         maxWidth: 30,

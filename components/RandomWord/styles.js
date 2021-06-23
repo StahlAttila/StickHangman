@@ -2,12 +2,13 @@ import { StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     hiddenWord : {
+        fontFamily: 'chalkboard',
         letterSpacing: 15,
-        marginBottom: 10
     },
     container: {
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: 30,
     }
 });
 
