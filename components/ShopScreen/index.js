@@ -1,18 +1,38 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 import StatBar from "../StatBar";
 import ShopCard from '../ShopCard';
 import skins from './skins.js';
+import { FlatList } from 'react-native-gesture-handler';
+import styles from '../ShopScreen/styles';
 
 const ShopScreen = (props) => {
 
     const {navigation} = props;
 
+    console.log(skins)
+
+    const myKeyExtractor = (item) => {
+        return item.key;
+    }
+
+    const renderItem = ({item}) => {
+        return <ShopCard skin={item}/>
+    }
+
     return (
-        <View>
+
+            <View style={styles.listArea}>
             <StatBar navigation={navigation} currentScreen={'shop'}/>
-            <ShopCard skin={skins[0]}/>
-        </View>
+            
+                <FlatList
+                    data={skins}
+                    renderItem={renderItem}
+                    keyExtractor={myKeyExtractor}
+                    numColumns={2}
+                    style={styles.list}
+                />
+            </View>
     );
 };
 
