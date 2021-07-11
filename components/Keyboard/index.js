@@ -78,7 +78,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[0].state}>
                     <View
                         style={lettersState[0].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>Q</Text>
+                        <Text style={lettersState[0].state ? styles.letterPushed : styles.letter}>Q</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -86,7 +86,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[1].state}>
                     <View
                         style={lettersState[1].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={[styles.letter, {paddingLeft: 3}]}>W</Text>
+                        <Text style={[lettersState[1].state ? styles.letterPushed : styles.letter, {paddingLeft: 3}]}>W</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -94,7 +94,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[2].state}>
                     <View
                         style={lettersState[2].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>E</Text>
+                        <Text style={lettersState[2].state ? styles.letterPushed : styles.letter}>E</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -102,7 +102,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[3].state}>
                     <View
                         style={lettersState[3].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>R</Text>
+                        <Text style={lettersState[3].state ? styles.letterPushed : styles.letter}>R</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -110,7 +110,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[4].state}>
                     <View
                         style={lettersState[4].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>T</Text>
+                        <Text style={lettersState[4].state ? styles.letterPushed : styles.letter}>T</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -118,7 +118,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[5].state}>
                     <View
                         style={lettersState[5].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={[styles.letter, {paddingLeft: 7}]}>Y</Text>
+                        <Text style={[lettersState[5].state ? styles.letterPushed : styles.letter, {paddingLeft: 7}]}>Y</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -126,7 +126,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[6].state}>
                     <View
                         style={lettersState[6].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>U</Text>
+                        <Text style={lettersState[6].state ? styles.letterPushed : styles.letter}>U</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -134,7 +134,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[7].state}>
                     <View
                         style={lettersState[7].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={[styles.letter, {paddingLeft: 11}]}>I</Text>
+                        <Text style={[lettersState[7].state ? styles.letterPushed : styles.letter, {paddingLeft: 11}]}>I</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -142,7 +142,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[8].state}>
                     <View
                         style={lettersState[8].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>O</Text>
+                        <Text style={lettersState[8].state ? styles.letterPushed : styles.letter}>O</Text>
                     </View>
                 </TouchableOpacity>
             </View>
@@ -152,7 +152,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[9].state}>
                     <View
                         style={lettersState[9].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>P</Text>
+                        <Text style={lettersState[9].state ? styles.letterPushed : styles.letter}>P</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -160,7 +160,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[10].state}>
                     <View
                         style={lettersState[10].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>A</Text>
+                        <Text style={lettersState[10].state ? styles.letterPushed : styles.letter}>A</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -168,7 +168,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[11].state}>
                     <View
                         style={lettersState[11].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>S</Text>
+                        <Text style={lettersState[11].state ? styles.letterPushed : styles.letter}>S</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -176,7 +176,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[12].state}>
                     <View
                         style={lettersState[12].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>D</Text>
+                        <Text style={lettersState[12].state ? styles.letterPushed : styles.letter}>D</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -184,7 +184,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[13].state}>
                     <View
                         style={lettersState[13].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>F</Text>
+                        <Text style={lettersState[13].state ? styles.letterPushed : styles.letter}>F</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -192,7 +192,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[14].state}>
                     <View
                         style={lettersState[14].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>G</Text>
+                        <Text style={lettersState[14].state ? styles.letterPushed : styles.letter}>G</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -200,7 +200,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[15].state}>
                     <View
                         style={lettersState[15].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>H</Text>
+                        <Text style={lettersState[15].state ? styles.letterPushed : styles.letter}>H</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -208,7 +208,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[16].state}>
                     <View
                         style={lettersState[16].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>J</Text>
+                        <Text style={lettersState[16].state ? styles.letterPushed : styles.letter}>J</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -216,7 +216,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[17].state}>
                     <View
                         style={lettersState[17].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>K</Text>
+                        <Text style={lettersState[17].state ? styles.letterPushed : styles.letter}>K</Text>
                     </View>
                 </TouchableOpacity>
 
@@ -227,7 +227,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[18].state}>
                     <View
                         style={lettersState[18].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={[styles.letter, {paddingLeft: 7}]}>L</Text>
+                        <Text style={[lettersState[18].state ? styles.letterPushed : styles.letter, {paddingLeft: 7}]}>L</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -235,7 +235,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[19].state}>
                     <View
                         style={lettersState[19].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={[styles.letter, {paddingLeft: 7}]}>Z</Text>
+                        <Text style={[lettersState[19].state ? styles.letterPushed : styles.letter, {paddingLeft: 7}]}>Z</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -243,7 +243,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[20].state}>
                     <View
                         style={lettersState[20].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>X</Text>
+                        <Text style={lettersState[20].state ? styles.letterPushed : styles.letter}>X</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -251,7 +251,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[21].state}>
                     <View
                         style={lettersState[21].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>C</Text>
+                        <Text style={lettersState[21].state ? styles.letterPushed : styles.letter}>C</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -259,7 +259,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[22].state}>
                     <View
                         style={lettersState[22].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>V</Text>
+                        <Text style={lettersState[22].state ? styles.letterPushed : styles.letter}>V</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -267,7 +267,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[23].state}>
                     <View
                         style={lettersState[23].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>B</Text>
+                        <Text style={lettersState[23].state ? styles.letterPushed : styles.letter}>B</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -275,7 +275,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[24].state}>
                     <View
                         style={lettersState[24].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={styles.letter}>N</Text>
+                        <Text style={lettersState[24].state ? styles.letterPushed : styles.letter}>N</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -283,7 +283,7 @@ const Keyboard = (props) => {
                     disabled={lettersState[25].state}>
                     <View
                         style={lettersState[25].state ? styles.letterContainerPushed : styles.letterContainer}>
-                        <Text style={[styles.letter, {paddingLeft: 3}]}>M</Text>
+                        <Text style={[lettersState[25].state ? styles.letterPushed : styles.letter, {paddingLeft: 3}]}>M</Text>
                     </View>
                 </TouchableOpacity>
             </View>

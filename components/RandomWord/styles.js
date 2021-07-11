@@ -2,7 +2,7 @@ import { StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     hiddenWord : {
-        fontFamily: 'chalkboard',
+        fontFamily: 'IndieFlower',
         letterSpacing: 15,
     },
     container: {

@@ -1,11 +1,9 @@
 import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
-    xpText: {
+    text: {
         fontSize: 26,
-    },
-    coinText: {
-        fontSize: 26,
+        fontFamily: "chalkboard"
     },
     statContainer: {
         flexDirection: "row",

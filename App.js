@@ -6,12 +6,14 @@ import {store} from "./redux/store";
 import { useFonts } from 'expo-font';
 import { ActivityIndicator } from 'react-native'
 import chalkboard from './assets/fonts/chalkboard.ttf';
+import IndieFlower from './assets/fonts/IndieFlower-Regular.ttf';
 
 
 export default function App() {
 
     let [fontsLoaded] = useFonts({
         chalkboard,
+        IndieFlower
     });
 
     if(!fontsLoaded) {

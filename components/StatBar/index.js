@@ -22,11 +22,11 @@ const StatBar = (props) => {
             }
             <View style={styles.levelContainer}>
                 <MaterialCommunityIcons name={"chevron-double-up"} size={46} color={"purple"}/>
-                <Text style={styles.xpText}>{level}</Text>
+                <Text style={styles.text}>{level}</Text>
             </View>
             <View style={styles.coinContainer}>
                 <Image source={require('../../assets/coin.png')} style={{width: 35, height: 35}}/>
-                <Text style={styles.coinText}>{coin}</Text>
+                <Text style={styles.text}>{coin}</Text>
             </View>
             <TouchableOpacity onPress={() => console.log("menu pressed")}>
                 <MaterialCommunityIcons name={"menu"} size={46}/>

@@ -2,23 +2,35 @@ import { StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     letter: {
-        fontFamily: 'chalkboard',
+        fontFamily: 'IndieFlower',
         fontSize: 28,
         minWidth: 30,
         maxWidth: 30,
         marginBottom: 2,
         paddingLeft: 5,
         marginHorizontal: "auto",
+        color: "rgb(212, 214, 213)",
+    },
+    letterPushed: {
+        fontFamily: 'IndieFlower',
+        fontSize: 28,
+        minWidth: 30,
+        maxWidth: 30,
+        marginBottom: 2,
+        paddingLeft: 5,
+        marginHorizontal: "auto",
+        color: "black"
     },
     letterContainer: {
-        borderWidth: 2,
+        borderWidth: 3,
         borderRadius: 5,
+        borderColor: "rgb(181, 130, 63)",
         width: 35,
         justifyContent: "center",
         alignItems: "center",
         marginHorizontal: 10,
         marginTop: 5,
-        backgroundColor: "rgb(126,196,68)"
+        backgroundColor: "rgb(27, 56, 27)"
     },
     letterContainerPushed: {
         borderWidth: 2,

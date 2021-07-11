@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text} from 'react-native';
 import StatBar from "../StatBar";
+import ShopCard from '../ShopCard';
+import skins from './skins.js';
 
 const ShopScreen = (props) => {
 
@@ -9,7 +11,7 @@ const ShopScreen = (props) => {
     return (
         <View>
             <StatBar navigation={navigation} currentScreen={'shop'}/>
-            <Text>SHOP SCREEN</Text>
+            <ShopCard skin={skins[0]}/>
         </View>
     );
 };
